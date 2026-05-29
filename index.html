@@ -2,7 +2,29 @@
 <html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>بوابة نور الهدى | المصحف الإلكتروني والأذكار</title>
+    
+    <!-- SEO & Metadata -->
+    <title>بوابة نور الهدى | المصحف الإلكتروني والأذكار ومواقيت الصلاة</title>
+    <meta name="description" content="بوابة إسلامية متكاملة تحتوي على المصحف الإلكتروني المرتل تلاوة واستماعاً، الأحاديث النبوية الشريفة، أذكار الصباح والمساء التفاعلية، ومواقيت الصلاة الدقيقة. تم تطويرها بواسطة TVAI.">
+    <meta name="keywords" content="قرآن كريم, المصحف الإلكتروني, استماع القرآن, مواقيت الصلاة, أذكار الصباح والمساء, مسبحة إلكترونية, أحاديث نبوية, نور الهدى, TVAI, محمد تامر">
+    <meta name="author" content="Topvon AI">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Google Site Verification -->
+    <meta name="google-site-verification" content="sdTb3DjqoC8q7KIGJ1BVFu2pAtXr_FvLnjqojUveApQ">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://topvon.ai/">
+    <meta property="og:title" content="بوابة نور الهدى | المصحف الإلكتروني والأذكار ومواقيت الصلاة">
+    <meta property="og:description" content="بوابة إسلامية متكاملة تتيح لك قراءة واستماع القرآن الكريم، تصفح الأذكار والأحاديث، ومعرفة مواقيت الصلاة بدقة فائقة.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="بوابة نور الهدى | المصحف الإلكتروني والأذكار">
+    <meta property="twitter:description" content="بوابة إسلامية متكاملة تتيح لك قراءة واستماع القرآن الكريم، تصفح الأذكار والأحاديث، ومعرفة مواقيت الصلاة بدقة فائقة.">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -32,10 +54,12 @@
             }
         }
     </script>
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
     <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&amp;family=Cairo:wght@300;400;600;700;800&amp;display=swap" rel="stylesheet">
+    
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -77,7 +101,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-extrabold text-white tracking-wide">بوابة نور الهدى</h1>
-                    <p class="text-xs text-gold-400">تطوير TVAI المتميز</p>
+                    <p class="text-xs text-gold-400">تطوير متميز من TVAI</p>
                 </div>
             </div>
             
@@ -296,7 +320,7 @@
 
     <!-- JavaScript & Logic -->
     <script>
-        // Surah Names List (Hardcoded to prevent extra API roundtrips and guarantee perfect Arabic names)
+        // Surah Names List
         const surahsList = [
             "الفاتحة","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود",
             "يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون",
@@ -363,8 +387,8 @@
         // Fetch Daily Ayah using Fawaz Ahmed Quran API
         async function fetchDailyAyah() {
             try {
-                // Fetching Surah 1 (Al-Fatihah) Ayah 5 as default or a random Surah/Ayah
                 const randomSurah = Math.floor(Math.random() * 114) + 1;
+                // Using requested API endpoint structure: https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@{apiVersion}/{endpoint}
                 const res = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quransimple/${randomSurah}.json`);
                 const data = await res.json();
                 if (data && data.chapter) {
@@ -403,7 +427,7 @@
             versesDiv.innerHTML = '<div class="text-center py-8"><i class="fa-solid fa-spinner animate-spin text-3xl text-gold-400"></i><p class="mt-2 text-sm text-gray-400">جاري تحميل السورة الكريمة...</p></div>';
 
             try {
-                // Fetch Surah Text using fawazahmed0 Quran API
+                // Fetch Surah Text using requested Fawaz Ahmed API
                 const resText = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quransimple/${surahNum}.json`);
                 const dataText = await resText.json();
 
@@ -419,7 +443,6 @@
                     let versesHtml = "";
                     dataText.chapter.forEach(ayah => {
                         let text = ayah.text;
-                        // Strip bismillah if it's already at the top and it's the first verse (except Fatihah)
                         if (surahNum != 1 && surahNum != 9 && ayah.verse === 1) {
                             text = text.replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "").trim();
                         }
@@ -427,12 +450,11 @@
                     });
                     versesDiv.innerHTML = versesHtml;
 
-                    // Load Reciter Audio (Using an external stable audio provider)
+                    // Load Reciter Audio
                     const audioPlayer = document.getElementById('quran-audio');
                     const audioContainer = document.getElementById('audio-container');
                     const playingTitle = document.getElementById('playing-surah-title');
 
-                    // Map internal reciter codes to EveryAyah/IslamicNetwork audio structure
                     const reciterMap = {
                         'afs': 'ar.alafasy',
                         'basit': 'ar.abdulbasitmurattal',
@@ -488,7 +510,7 @@
             });
         }
 
-        // Tasbih (Misbaha) Logic
+        // Tasbih Logic
         let tasbihCount = 0;
         function incrementTasbih() {
             tasbihCount++;
