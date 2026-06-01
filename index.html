@@ -4,27 +4,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO & Metadata -->
-    <title>بوابة نور الهدى | المصحف الإلكتروني والأذكار ومواقيت الصلاة</title>
-    <meta name="description" content="بوابة إسلامية متكاملة تحتوي على المصحف الإلكتروني المرتل تلاوة واستماعاً، الأحاديث النبوية الشريفة، أذكار الصباح والمساء التفاعلية، ومواقيت الصلاة الدقيقة. تم تطويرها بواسطة TVAI.">
-    <meta name="keywords" content="قرآن كريم, المصحف الإلكتروني, استماع القرآن, مواقيت الصلاة, أذكار الصباح والمساء, مسبحة إلكترونية, أحاديث نبوية, نور الهدى, TVAI, محمد تامر">
+    <title>بوابة نور الهدى الإسلامية | المصحف الفاخر والإذاعات المباشرة</title>
+    <meta name="description" content="بوابة إسلامية ملكية متكاملة تحتوي على المصحف الإلكتروني المرتل، التفسير الميسر، البث المباشر للإذاعات الإسلامية، أسماء الله الحسنى، والرقية الشرعية. تطوير TVAI.">
+    <meta name="keywords" content="قرآن كريم, راديو القرآن, إذاعات إسلامية, المصحف الإلكتروني, تفسير القرآن, أسماء الله الحسنى, الرقية الشرعية, مواقيت الصلاة, TVAI, محمد تامر">
     <meta name="author" content="Topvon AI">
-    <meta name="robots" content="index, follow">
     
-    <!-- Google Site Verification -->
-    <meta name="google-site-verification" content="sdTb3DjqoC8q7KIGJ1BVFu2pAtXr_FvLnjqojUveApQ">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://topvon.ai/">
-    <meta property="og:title" content="بوابة نور الهدى | المصحف الإلكتروني والأذكار ومواقيت الصلاة">
-    <meta property="og:description" content="بوابة إسلامية متكاملة تتيح لك قراءة واستماع القرآن الكريم، تصفح الأذكار والأحاديث، ومعرفة مواقيت الصلاة بدقة فائقة.">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="بوابة نور الهدى | المصحف الإلكتروني والأذكار">
-    <meta property="twitter:description" content="بوابة إسلامية متكاملة تتيح لك قراءة واستماع القرآن الكريم، تصفح الأذكار والأحاديث، ومعرفة مواقيت الصلاة بدقة فائقة.">
-
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -37,10 +21,12 @@
                             100: '#dcfce7',
                             800: '#065f46',
                             900: '#064e3b',
-                            950: '#022c22',
+                            955: '#011510',
+                            950: '#011c15',
                         },
                         gold: {
-                            100: '#fdf6e2',
+                            50: '#fffbeb',
+                            100: '#fef3c7',
                             400: '#fbbf24',
                             500: '#f59e0b',
                             600: '#d97706',
@@ -49,6 +35,25 @@
                     fontFamily: {
                         amiri: ['Amiri', 'serif'],
                         cairo: ['Cairo', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'spin-slow': {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        'gold-glow': {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(245, 158, 11, 0.2)' },
+                            '50%': { boxShadow: '0 0 25px rgba(245, 158, 11, 0.4)' },
+                        },
+                        'fade-in': {
+                            '0%': { opacity: '0', transform: 'translateY(10px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    animation: {
+                        'spin-slow': 'spin-slow 15s linear infinite',
+                        'gold-glow': 'gold-glow 3s infinite',
+                        'fade-in': 'fade-in 0.4s ease-out forwards',
                     }
                 }
             }
@@ -65,21 +70,22 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #022c22;
-            background-image: radial-gradient(circle at top right, rgba(6, 95, 70, 0.35) 0%, transparent 60%),
-                              radial-gradient(circle at bottom left, rgba(217, 119, 6, 0.1) 0%, transparent 50%);
+            background-color: #011510;
+            background-image: 
+                radial-gradient(circle at top right, rgba(6, 95, 70, 0.5) 0%, transparent 50%),
+                radial-gradient(circle at bottom left, rgba(217, 119, 6, 0.15) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 0l10 30 30 10-30 10-10 30-10-30-30-10 30-10z' fill='%23d97706' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
             background-attachment: fixed;
         }
         .quran-text {
             font-family: 'Amiri', serif;
-            line-height: 2.5;
         }
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #022c22;
+            background: #011510;
         }
         ::-webkit-scrollbar-thumb {
             background: #d97706;
@@ -92,8 +98,8 @@
 </head>
 <body class="text-gray-100 min-h-screen flex flex-col">
 
-    <!-- Header / Navigation -->
-    <header class="border-b border-emerald-800 bg-emerald-950/80 backdrop-blur-md sticky top-0 z-50">
+    <!-- Header -->
+    <header class="border-b border-emerald-900 bg-emerald-950/90 backdrop-blur-md sticky top-0 z-50 transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 space-x-reverse">
                 <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-gold-600 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-900/50">
@@ -101,22 +107,22 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-extrabold text-white tracking-wide">بوابة نور الهدى</h1>
-                    <p class="text-xs text-gold-400">تطوير متميز من TVAI</p>
+                    <p class="text-xs text-gold-400 font-bold">بإشراف وتطوير TVAI المتميز 🇪🇬</p>
                 </div>
             </div>
             
-            <!-- Desktop Nav -->
-            <nav class="hidden md:flex space-x-8 space-x-reverse text-sm font-medium">
-                <a href="#quran-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-book-quran"></i> القرآن الكريم</a>
-                <a href="#hadith-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-book"></i> الأحاديث النبوية</a>
-                <a href="#prayer-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-clock"></i> مواقيت الصلاة</a>
-                <a href="#azkar-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-hands-praying"></i> الأذكار والتسابيح</a>
+            <!-- Nav Menu -->
+            <nav class="hidden lg:flex space-x-6 space-x-reverse text-sm font-medium">
+                <a href="#quran-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-book-quran"></i> القرآن والتفسير</a>
+                <a href="#radio-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-radio"></i> الإذاعات المباشرة</a>
+                <a href="#names-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-star-and-crescent"></i> أسماء الله الحسنى</a>
+                <a href="#ruqyah-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-heart-pulse"></i> الرقية الشرعية</a>
+                <a href="#hadith-section" class="hover:text-gold-400 transition-colors flex items-center gap-2"><i class="fa-solid fa-book"></i> الأذكار والحديث</a>
             </nav>
 
-            <!-- Hijri Date Display -->
-            <div class="hidden lg:flex items-center gap-3 bg-emerald-900/40 px-4 py-2 rounded-full border border-emerald-800/60">
+            <div class="hidden md:flex items-center gap-3 bg-emerald-900/40 px-4 py-2 rounded-full border border-emerald-800/60">
                 <i class="fa-solid fa-calendar-days text-gold-400"></i>
-                <span id="hijri-date" class="text-xs text-gray-200">جاري تحميل التاريخ الهجري...</span>
+                <span id="hijri-date" class="text-xs text-gray-200">جاري تحميل التاريخ...</span>
             </div>
         </div>
     </header>
@@ -124,31 +130,30 @@
     <!-- Main Content -->
     <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
         
-        <!-- Hero Section & Ayah of the Day -->
-        <section class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-emerald-900 to-emerald-950 border border-emerald-800 p-8 sm:p-12 shadow-2xl">
-            <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <!-- Hero Section & Prayer Times -->
+        <section class="relative rounded-3xl overflow-hidden bg-gradient-to-r from-emerald-950 to-emerald-900 border border-gold-500/20 p-8 sm:p-12 shadow-2xl animate-gold-glow">
             <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div class="lg:col-span-7 space-y-6">
-                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium bg-gold-500/10 text-gold-400 border border-gold-500/20">
-                        <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span> آية للتأمل والتدبر
+                    <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-gold-500/10 text-gold-400 border border-gold-500/20">
+                        <span class="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span> آية اليوم التدبرية
                     </span>
                     <div class="space-y-4">
                         <p id="daily-ayah" class="quran-text text-2xl sm:text-3xl lg:text-4xl text-gold-100 leading-relaxed font-bold">"إِنَّ هَٰذَا الْقُرْآنَ يَهْدِي لِلَّتِي هِيَ أَقْوَمُ"</p>
                         <p id="daily-ayah-ref" class="text-sm text-gold-400/80 font-medium">سورة الإسراء - آية 9</p>
                     </div>
                     <div class="flex flex-wrap gap-4 pt-2">
-                        <button onclick="fetchDailyAyah()" class="px-5 py-2.5 bg-gold-500 hover:bg-gold-600 text-emerald-950 font-bold rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-gold-500/20 flex items-center gap-2 text-sm">
+                        <button onclick="fetchDailyAyah()" class="px-5 py-2.5 bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-600 hover:to-gold-700 text-emerald-950 font-bold rounded-xl transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg shadow-gold-500/20 flex items-center gap-2 text-sm">
                             <i class="fa-solid fa-rotate"></i> آية أخرى
                         </button>
                     </div>
                 </div>
-                <!-- Prayer Times Widget -->
-                <div id="prayer-section" class="lg:col-span-5 bg-emerald-950/60 backdrop-blur-md rounded-2xl p-6 border border-emerald-800/80 space-y-4">
-                    <div class="flex justify-between items-center border-b border-emerald-800/60 pb-3">
+                <!-- Prayer Times -->
+                <div id="prayer-section" class="lg:col-span-5 bg-emerald-950/80 backdrop-blur-md rounded-2xl p-6 border border-gold-500/10 space-y-4">
+                    <div class="flex justify-between items-center border-b border-emerald-800 pb-3">
                         <h3 class="font-bold text-white flex items-center gap-2"><i class="fa-solid fa-clock text-gold-400"></i> مواقيت الصلاة</h3>
-                        <span id="prayer-city" class="text-xs text-gold-400 bg-emerald-900/60 px-2.5 py-1 rounded-full">القاهرة</span>
+                        <span class="text-xs text-gold-400 bg-emerald-900/60 px-2.5 py-1 rounded-full">القاهرة</span>
                     </div>
-                    <div class="grid grid-cols-5 gap-2 text-center" id="prayer-widget-times">
+                    <div class="grid grid-cols-5 gap-2 text-center">
                         <div class="bg-emerald-900/30 p-2 rounded-lg border border-emerald-800/40">
                             <p class="text-xs text-gray-400">الفجر</p>
                             <p class="font-bold text-gold-400 mt-1" id="fajr-time">--:--</p>
@@ -179,45 +184,62 @@
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-emerald-800/60 pb-4">
                 <div>
                     <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
-                        <i class="fa-solid fa-book-open text-gold-400"></i> المصحف الإلكتروني المرتل
+                        <i class="fa-solid fa-book-open text-gold-400"></i> المصحف الإلكتروني المرتل والتفسير
                     </h2>
-                    <p class="text-sm text-gray-400 mt-1">تصفح السور الكريمة واستمع إليها بأصوات كبار القراء</p>
+                    <p class="text-sm text-gray-400 mt-1">تصفح السور واستمع إليها بأصوات كبار القراء مع التفسير الميسر المدمج</p>
                 </div>
                 <!-- Selection Controls -->
-                <div class="flex flex-wrap gap-3">
-                    <select id="reciter-select" onchange="loadSurah()" class="bg-emerald-900 text-white border border-emerald-700 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none">
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="relative">
+                        <input type="text" id="surah-search" oninput="filterSurahs()" placeholder="بحث سريع عن سورة..." class="bg-emerald-900/80 text-white placeholder-gray-400 border border-gold-500/20 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none w-48">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    </div>
+                    <select id="reciter-select" onchange="loadSurah()" class="bg-emerald-900 text-white border border-gold-500/20 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none">
                         <option value="afs">مشاري العفاسي</option>
                         <option value="basit">عبد الباسط عبد الصمد</option>
                         <option value="minsh">محمد صديق المنشاوي</option>
                         <option value="lhusr">محمود خليل الحصري</option>
                     </select>
-                    <select id="surah-select" onchange="loadSurah()" class="bg-emerald-900 text-white border border-emerald-700 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none">
-                        <!-- Options filled by JavaScript -->
+                    <select id="surah-select" onchange="loadSurah()" class="bg-emerald-900 text-white border border-gold-500/20 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none">
+                        <!-- Options filled by JS -->
                     </select>
                 </div>
             </div>
 
             <!-- Surah Content Display -->
-            <div class="bg-emerald-950/40 border border-emerald-800/80 rounded-2xl p-6 sm:p-8 min-h-[350px] flex flex-col justify-between relative">
-                <!-- Audio Player Top Bar -->
-                <div id="audio-container" class="hidden mb-6 bg-emerald-900/50 border border-emerald-800 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="bg-emerald-950/40 border border-gold-500/10 rounded-2xl p-6 sm:p-8 min-h-[350px] flex flex-col justify-between relative">
+                <!-- Audio Player -->
+                <div id="audio-container" class="hidden mb-6 bg-emerald-900/50 border border-gold-500/10 p-4 rounded-xl flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="flex items-center gap-3">
                         <span class="w-10 h-10 rounded-full bg-gold-500/20 text-gold-400 flex items-center justify-center">
-                            <i class="fa-solid fa-volume-high"></i>
+                            <i class="fa-solid fa-volume-high animate-bounce"></i>
                         </span>
                         <div>
                             <p id="playing-surah-title" class="font-bold text-sm text-white">جاري التشغيل...</p>
                             <p class="text-xs text-gray-400">تلاوة مباركة بصوت القارئ المختار</p>
                         </div>
                     </div>
-                    <audio id="quran-audio" controls="" class="w-full sm:w-auto max-w-md accent-gold-500"></audio>
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <audio id="quran-audio" controls="" class="w-full sm:w-auto max-w-md accent-gold-500"></audio>
+                        <select id="audio-speed" onchange="changeAudioSpeed()" class="bg-emerald-950 text-white border border-emerald-700 rounded-lg px-2 py-1 text-xs">
+                            <option value="1">1.0x (طبيعي)</option>
+                            <option value="1.25">1.25x</option>
+                            <option value="1.5">1.5x</option>
+                        </select>
+                    </div>
                 </div>
 
-                <!-- Bismillah / Texts -->
-                <div class="text-center space-y-6 max-w-4xl mx-auto my-auto py-8">
-                    <p id="bismillah" class="quran-text text-3xl text-gold-400 hidden">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
-                    <div id="surah-verses" class="quran-text text-2xl sm:text-3xl text-gray-100 leading-[2.2] text-justify font-medium">
-                        <div class="text-center text-gray-400 space-y-4">
+                <div class="flex justify-between items-center mb-4">
+                    <p class="text-xs text-gold-400/80 font-semibold"><i class="fa-solid fa-circle-info"></i> اضغط على أي آية لعرض تفسيرها الميسر ونسخها فوراً!</p>
+                    <button id="toggle-tafsir-btn" onclick="toggleTafsirView()" class="hidden px-3 py-1.5 bg-emerald-800/80 hover:bg-emerald-700 text-xs font-bold rounded-lg border border-gold-500/20 items-center gap-1.5 transition-all">
+                        <i class="fa-solid fa-book-open-reader text-gold-400"></i> <span id="tafsir-btn-text">عرض التفسير الميسر</span>
+                    </button>
+                </div>
+
+                <div class="text-center space-y-6 max-w-5xl mx-auto my-auto py-4">
+                    <p id="bismillah" class="quran-text text-4xl text-gold-400 hidden">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</p>
+                    <div id="surah-verses" class="quran-text text-2xl sm:text-3xl text-gray-100 leading-[2.4] text-justify font-medium">
+                        <div class="text-center text-gray-400 space-y-4 py-12">
                             <i class="fa-solid fa-book-quran text-6xl text-emerald-800/60 animate-pulse"></i>
                             <p class="text-base font-cairo">يرجى اختيار السورة من القائمة بالأعلى لبدء القراءة والاستماع</p>
                         </div>
@@ -226,10 +248,143 @@
             </div>
         </section>
 
+        <!-- Dynamic Islamic Radio Section (New Feature) -->
+        <section id="radio-section" class="space-y-6 scroll-mt-24">
+            <div class="border-b border-emerald-800/60 pb-4">
+                <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-radio text-gold-400 animate-pulse"></i> الإذاعات الإسلامية المباشرة (mp3quran)
+                </h2>
+                <p class="text-sm text-gray-400 mt-1">استمع للبث المباشر لإذاعات القرآن الكريم، الفتاوى، والرقية الشرعية بأصوات كبار المشايخ</p>
+            </div>
+
+            <div class="bg-emerald-950/40 border border-gold-500/10 rounded-2xl p-6 space-y-6">
+                <div class="flex flex-col md:flex-row gap-4 justify-between items-center">
+                    <div class="relative w-full md:w-72">
+                        <input type="text" id="radio-search" oninput="filterRadios()" placeholder="بحث في الإذاعات المتاحة..." class="w-full bg-emerald-900/80 text-white placeholder-gray-400 border border-gold-500/20 rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-gold-500 focus:outline-none">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2.5 text-gray-400 text-xs"></i>
+                    </div>
+                    <div class="flex items-center gap-3 w-full md:w-auto">
+                        <span class="text-xs text-gold-400 font-bold whitespace-nowrap"><i class="fa-solid fa-play"></i> الإذاعة النشطة:</span>
+                        <p id="active-radio-name" class="text-sm text-white font-bold truncate max-w-xs">يرجى اختيار إذاعة للتشغيل</p>
+                    </div>
+                </div>
+
+                <!-- Custom Radio Stream Player -->
+                <div class="bg-emerald-900/30 border border-emerald-800 p-4 rounded-xl flex items-center justify-between gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gold-500/10 flex items-center justify-center text-gold-400">
+                            <i class="fa-solid fa-tower-broadcast text-xl animate-pulse"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-sm text-white">بث مباشر متواصل</p>
+                            <p class="text-xs text-gray-400">تحديث تلقائي مستمر</p>
+                        </div>
+                    </div>
+                    <audio id="radio-audio" controls="" class="accent-gold-500 w-full md:w-auto max-w-md"></audio>
+                </div>
+
+                <!-- Radios Grid -->
+                <div id="radios-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[250px] overflow-y-auto pr-2">
+                    <!-- Loaded dynamically via API -->
+                    <div class="text-center py-6 text-gray-400 col-span-full">
+                        <i class="fa-solid fa-spinner animate-spin text-2xl text-gold-400"></i>
+                        <p class="text-xs mt-2">جاري جلب الإذاعات المباشرة...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Verse Detail Modal -->
+        <div id="verse-modal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+            <div class="bg-emerald-950 border border-gold-500/30 rounded-3xl p-6 max-w-lg w-full space-y-6 shadow-2xl relative animate-fade-in">
+                <button onclick="closeVerseModal()" class="absolute top-4 left-4 text-gray-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+                <div class="text-center space-y-4">
+                    <span class="text-xs font-bold text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20" id="modal-verse-title">آية</span>
+                    <p id="modal-verse-arabic" class="quran-text text-2xl text-gold-100 leading-relaxed"></p>
+                    <div class="border-t border-emerald-800/60 pt-4">
+                        <h4 class="font-bold text-sm text-gold-400 mb-2 text-right">التفسير الميسر (تفسير الجلالين):</h4>
+                        <p id="modal-verse-tafsir" class="text-sm text-gray-300 text-justify leading-relaxed"></p>
+                    </div>
+                </div>
+                <div class="flex justify-end gap-3 pt-2">
+                    <button id="modal-copy-btn" class="px-4 py-2 bg-emerald-900 hover:bg-emerald-800 text-white rounded-xl text-xs font-bold flex items-center gap-2">
+                        <i class="fa-regular fa-copy"></i> نسخ الآية والتفسير
+                    </button>
+                    <button onclick="closeVerseModal()" class="px-4 py-2 bg-gold-500 hover:bg-gold-600 text-emerald-950 rounded-xl text-xs font-bold">
+                        إغلاق
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Names of Allah Section -->
+        <section id="names-section" class="space-y-6 scroll-mt-24">
+            <div class="border-b border-emerald-800/60 pb-4">
+                <h2 class="text-2xl font-extrabold text-white flex items-center gap-3">
+                    <i class="fa-solid fa-star-and-crescent text-gold-400"></i> أسماء الله الحسنى ومعانيها
+                </h2>
+                <p class="text-sm text-gray-400 mt-1">تصفح أسماء الله الـ 99 واضغط على أي اسم لتقرأ معناه وتفسيره الروحاني الفاخر</p>
+            </div>
+
+            <!-- Names Grid -->
+            <div id="names-grid" class="grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-9 gap-3">
+                <!-- Injected via JS -->
+            </div>
+        </section>
+
+        <!-- Ruqyah Shariah Section -->
+        <section id="ruqyah-section" class="grid grid-cols-1 lg:grid-cols-3 gap-8 scroll-mt-24">
+            <!-- Ruqyah Card -->
+            <div class="lg:col-span-2 bg-gradient-to-br from-emerald-950 to-emerald-900 border border-gold-500/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
+                <div>
+                    <div class="flex items-center justify-between border-b border-emerald-800 pb-4 mb-4">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                            <i class="fa-solid fa-heart-pulse text-gold-400"></i> الرقية الشرعية المكتوبة
+                        </h3>
+                        <span class="text-xs bg-gold-500/10 text-gold-400 px-3 py-1 rounded-full border border-gold-500/20">تحصين الشفاء</span>
+                    </div>
+                    <div id="ruqyah-content" class="space-y-4 max-h-[300px] overflow-y-auto pr-2">
+                        <!-- Injected via JS -->
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-emerald-800/60 flex justify-between items-center">
+                    <button onclick="nextRuqyah()" class="px-4 py-2 bg-gold-500 hover:bg-gold-600 text-emerald-950 rounded-xl text-sm font-bold transition-all flex items-center gap-2">
+                        الآية التالية <i class="fa-solid fa-arrow-left"></i>
+                    </button>
+                    <span id="ruqyah-progress" class="text-xs text-gray-400">الآية 1 من 5</span>
+                </div>
+            </div>
+
+            <!-- Islamic Duas -->
+            <div class="bg-emerald-950/60 border border-gold-500/10 rounded-3xl p-6 flex flex-col justify-between space-y-4">
+                <div class="border-b border-emerald-800 pb-3">
+                    <h3 class="font-bold text-lg text-white flex items-center gap-2">
+                        <i class="fa-solid fa-hand-holding-heart text-gold-400"></i> أدعية من القرآن والسنة
+                    </h3>
+                    <p class="text-xs text-gray-400 mt-1">أدعية مباركة منتقاة بعناية</p>
+                </div>
+                <div class="space-y-4">
+                    <div id="dua-text" class="text-sm sm:text-base text-gray-100 leading-relaxed font-medium min-h-[100px] flex items-center justify-center text-center">
+                        "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ"
+                    </div>
+                </div>
+                <div class="pt-4 border-t border-emerald-800/60 flex justify-between items-center">
+                    <button onclick="fetchRandomDua()" class="px-3 py-1.5 bg-emerald-900 hover:bg-emerald-800 text-xs text-gray-300 rounded-lg transition-colors flex items-center gap-1.5">
+                        <i class="fa-solid fa-arrows-rotate"></i> دعاء آخر
+                    </button>
+                    <button onclick="copyDua()" class="p-2 text-gray-400 hover:text-gold-400 transition-colors" title="نسخ الدعاء">
+                        <i class="fa-regular fa-copy text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Hadith & Tasbih Section -->
         <section id="hadith-section" class="grid grid-cols-1 lg:grid-cols-3 gap-8 scroll-mt-24">
             <!-- Hadith Card -->
-            <div class="lg:col-span-2 bg-gradient-to-br from-emerald-950 to-emerald-900/80 border border-emerald-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
+            <div class="lg:col-span-2 bg-gradient-to-br from-emerald-950 to-emerald-900/80 border border-gold-500/10 rounded-3xl p-6 sm:p-8 flex flex-col justify-between space-y-6">
                 <div class="space-y-4">
                     <div class="flex items-center justify-between">
                         <span class="text-xs font-bold text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/20">حديث نبوي شريف</span>
@@ -244,7 +399,7 @@
                 </div>
                 <div class="pt-4 border-t border-emerald-800/60 flex justify-between items-center">
                     <button onclick="fetchRandomHadith()" class="px-4 py-2 bg-emerald-800 hover:bg-emerald-700 text-white rounded-lg text-sm font-semibold transition-all flex items-center gap-2">
-                        <i class="fa-solid fa-arrows-rotate"></i> حديث آخر
+                        <i class="fa-solid fa-arrows-rotate animate-spin-slow"></i> حديث آخر
                     </button>
                     <button onclick="shareHadith()" class="p-2 text-gray-400 hover:text-gold-400 transition-colors" title="نسخ الحديث">
                         <i class="fa-regular fa-copy text-lg"></i>
@@ -253,7 +408,7 @@
             </div>
 
             <!-- Digital Misbaha (Tasbih) -->
-            <div class="bg-emerald-950/60 border border-emerald-800 rounded-2xl p-6 flex flex-col justify-between items-center text-center relative overflow-hidden">
+            <div class="bg-emerald-950/60 border border-gold-500/10 rounded-3xl p-6 flex flex-col justify-between items-center text-center relative overflow-hidden">
                 <div class="w-full">
                     <h3 class="font-bold text-lg text-white mb-2">المسبحة الإلكترونية</h3>
                     <p id="tasbih-target" class="text-xs text-gold-400 bg-emerald-900/40 px-3 py-1 rounded-full inline-block">سبحان الله</p>
@@ -261,7 +416,7 @@
 
                 <!-- Main Counter Circle -->
                 <div class="my-6 relative flex items-center justify-center">
-                    <div class="w-36 h-36 rounded-full border-4 border-emerald-800 flex flex-col items-center justify-center bg-emerald-900/40 cursor-pointer select-none active:scale-95 transition-transform duration-100 shadow-inner" onclick="incrementTasbih()">
+                    <div class="w-36 h-36 rounded-full border-4 border-gold-500/20 flex flex-col items-center justify-center bg-emerald-900/40 cursor-pointer select-none active:scale-95 transition-transform duration-100 shadow-inner" onclick="incrementTasbih()">
                         <span id="tasbih-count" class="text-4xl font-extrabold text-gold-400">0</span>
                         <span class="text-xs text-gray-400 mt-1">اضغط هنا</span>
                     </div>
@@ -308,12 +463,12 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-emerald-800/80 bg-emerald-950 mt-16 py-8 text-center text-sm text-gray-400">
+    <footer class="border-t border-emerald-900 bg-emerald-950 py-8 text-center text-sm text-gray-400">
         <div class="max-w-7xl mx-auto px-4 space-y-3">
             <p class="font-bold text-white flex items-center justify-center gap-2">
                 <i class="fa-solid fa-mosque text-gold-400"></i> بوابة نور الهدى
             </p>
-            <p class="text-xs">تم التطوير بواسطة <span class="text-gold-400 font-bold">TVAI</span> — شركة برمجيات مصرية مستقلة 🇪🇬</p>
+            <p class="text-xs">تم التطوير بواسطة <span class="text-gold-400 font-bold">TVAI</span> — شركة برمجيات مصرية مستقلة 🇪🇬 © 2026</p>
             <p class="text-xs text-gray-500">مؤسس الشركة: المطور المصري محمد تامر</p>
         </div>
     </footer>
@@ -329,19 +484,131 @@
             "محمد","الفتح","الحجرات","ق","الذاريات","الطور","النجم","القمر","الرحمن","الواقعة","الحديد","المجادلة",
             "الحشر","الممتحنة","الصف","الجمعة","المنافقون","التغابن","الطلاق","التحريم","الملك","القلم","الحاقة",
             "المعارج","نوح","الجن","المزمل","المدثر","القيامة","الإنسان","المرسلات","النبأ","النازعات","عبس",
-            "التكوير","الانفطار","المطففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
+            "التكوير","الانفطار","المطاففين","الانشقاق","البروج","الطارق","الأعلى","الغاشية","الفجر","البلد",
             "الشمس","الليل","الضحى","الشرح","التين","العلق","القدر","البينة","الزلزلة","العاديات","القارعة",
             "التكاثر","العصر","الهمزة","الفيل","قريش","الماعون","الكوثر","الكافرون","النصر","المسد","الإخلاص",
             "الفلق","الناس"
         ];
 
-        // Localized Hadiths
+        // Complete 99 Names of Allah with Meanings
+        const namesOfAllah = [
+            { name: "الرَّحْمَنُ", desc: "الذي وسعت رحمته كل شيء في الوجود وعمّت الكائنات بأسرها." },
+            { name: "الرَّحِيمُ", desc: "المنعم برحمته الخاصة على عباده المؤمنين هدايةً وتوفيقاً وجزاءً." },
+            { name: "الْمَلِكُ", desc: "صاحب السلطان المطلق والملك التام الذي لا يزول ملكه ولا ينقص." },
+            { name: "الْقُدُّوسُ", desc: "المنزه والمطهر عن كل نقص وعيب وشبيه، الكامل في صفاته." },
+            { name: "السَّلَامُ", desc: "ناشر السلام والأمان بين خلقه، السالم من كل عيب ونقص." },
+            { name: "الْمُؤْمِنُ", desc: "الذي يصدق عباده وعوده، ويؤمن الخائفين بأمانه ولطفه." },
+            { name: "الْمُهَيْمِنُ", desc: "الرقيب على كل شيء، الحافظ والحاكم والمطلع على سرائر الأمور." },
+            { name: "الْعَزِيزُ", desc: "الغالب الذي لا يُغلب، ذو القوة القاطعة والمكانة الرفيعة." },
+            { name: "الْجَبَّارُ", desc: "الذي يجبر كسر القلوب، وينفذ أمره وقضاءه في كل شيء قسراً ولطفاً." },
+            { name: "الْمُتَكَبِّرُ", desc: "صاحب الكبرياء والعظمة، المنزه عن صفات الخلق والشركاء." },
+            { name: "الْخَالِقُ", desc: "الموجد للأشياء من العدم على غير مثال سابق بتقديره وإرادته." },
+            { name: "الْبَارِئُ", desc: "الذي يخلق ويعطي لكل مخلوق صورته المتميزة ببراعة وإتقان." },
+            { name: "الْمُصَوِّرُ", desc: "الذي يعطي لكل مخلوق شكلاً وهيئة تليق بوظيفته وحكمته." },
+            { name: "الْغَفَّارُ", desc: "الذي يستر الذنوب والعيوب لمرة بعد مرة، ويعفو عن الزلات." },
+            { name: "الْقَهَّارُ", desc: "الذي قهر كل المخلوقات بسلطانه وقوته، وخضع له كل شيء." },
+            { name: "الْوَهَّابُ", desc: "الذي يعطي الهبات والخيرات مجاناً وبغير حساب لجميع خلقه." },
+            { name: "الرَّزَّاقُ", desc: "المتكفل بأقوات العباد المادية والروحية وتوصيلها لهم." },
+            { name: "الْفَتَّاحُ", desc: "الذي يفتح أبواب الرحمة والرزق والعلم، ويقضي بين العباد بالحق." },
+            { name: "الْعَلِيمُ", desc: "الذي يعلم بواطن الأمور وظواهرها، ولا يخفى عليه شيء في الأرض ولا في السماء." },
+            { name: "الْقَابِضُ", desc: "الذي يمسك الرزق والروح عمن يشاء من خلقه بحكمته وعدله." },
+            { name: "الْبَاسِطُ", desc: "الذي ينشر الرزق والرحمة على من يشاء من عباده بفضله وجوده." },
+            { name: "الْخَافِضُ", desc: "الذي يخفض المستكبرين والطغاة ويذلهم في الدنيا والآخرة." },
+            { name: "الرَّافِعُ", desc: "الذي يرفع شأن أوليائه الصالحين بالعلم والإيمان والدرجات العالية." },
+            { name: "الْمُعِزُّ", desc: "الذي يهب العزة والتمكين لمن يشاء من عباده المخلصين." },
+            { name: "الْمُذِلُّ", desc: "الذي يلحق الذل والهوان بمن حاد عن طريقه واستكبر في أرضه." },
+            { name: "السَّمِيعُ", desc: "الذي يسمع كل الأصوات والهمس والدعاء بغير أدوات ولا حدود." },
+            { name: "الْبَصِيرُ", desc: "الذي يرى كل المرئيات دقيقها وجليلها، خفيها وظاهرها تحت أي ظرف." },
+            { name: "الْحَكَمُ", desc: "الحاكم العادل الذي لا راد لقضائه ولا معقب لحكمه وفصله." },
+            { name: "الْعَدْلُ", desc: "المنزه عن الظلم والجور في أحكامه وأفعاله وتوزيعه للحقوق." },
+            { name: "اللَّطِيفُ", desc: "البر بعباده المحسن إليهم في خفاء ولطف من حيث لا يحتسبون." },
+            { name: "الْخَبِيرُ", desc: "العالم بحقائق الأشياء وخفاياها، الذي لا تغيب عنه السرائر." },
+            { name: "الْحَلِيمُ", desc: "الذي لا يعجل بالعقوبة على العصاة بل يمهلهم ليتوبوا ويرجعوا." },
+            { name: "الْعَظِيمُ", desc: "ذو المجد والقدر الرفيع الذي تتضاءل أمامه عظمة كل عظيم." },
+            { name: "الْغَفُورُ", desc: "الذي يكثر من الغفران والصفح وتجاوز السيئات مهما عظمت." },
+            { name: "الشَّكُورُ", desc: "الذي يثيب على العمل القليل بالأجر العظيم والنعيم المقيم." },
+            { name: "الْعَلِيُّ", desc: "الذي علا بذاته وصفاته فوق جميع خلقه وله العلو المطلق." },
+            { name: "الْكَبِيرُ", desc: "الذي لا يبلغ كنه عظمته ووصفه أحد، الموصوف بالجلال والكمال." },
+            { name: "الْحَفِيظُ", desc: "الذي يحفظ الكائنات ويمسك السماوات والأرض، ويحفظ العباد من السوء." },
+            { name: "الْمُقِيتُ", desc: "المقتدر والموصل للأقوات والأرزاق لأجساد الخلائق وأرواحهم." },
+            { name: "الْحَسِيبُ", desc: "الكافي لعباده، والمحاسب لهم يوم القيامة بدقة بالغة وعدل." },
+            { name: "الْجَلِيلُ", desc: "الموصوف بصفات الجلال والكمال المطلق والجمال الفائق." },
+            { name: "الْكَرِيمُ", desc: "الذي يعطي بغير سؤال، ويتجاوز عن الذنوب بغير مقابل." },
+            { name: "الرَّقِيبُ", desc: "الملاحظ والرقيب الحاضر الذي لا يغيب عنه ذرة في الكون." },
+            { name: "الْمُجِيبُ", desc: "الذي يقبل دعاء الداعين، ويقضي حوائج السائلين بلطفه وكرمه." },
+            { name: "الْوَاسِعُ", desc: "الذي وسع علمه ورحمته ورزقه ومغفرته جميع الكائنات." },
+            { name: "الْحَكِيمُ", desc: "الذي يضع الأشياء في مواضعها الصحيحة واللائقة بها بحكمة بالغة." },
+            { name: "الْوَدُودُ", desc: "المتودد إلى عباده بالنعم، المحبوب في قلوب أوليائه الصالحين." },
+            { name: "الْمَجِيدُ", desc: "الشريف ذو الشرف والفضل والخير الواسع والملك العظيم." },
+            { name: "الْبَاعِثُ", desc: "الذي يبعث الموتى من القبور للحساب والجزاء يوم القيامة." },
+            { name: "الشَّهِيدُ", desc: "المطلع على كل شيء، الحاضر الذي يشهد على أعمال العباد." },
+            { name: "الْحَقُّ", desc: "الموجود حقاً بغير زوال، الذي قوله ووعده ولقاؤه حق مبين." },
+            { name: "الْوَكِيلُ", desc: "المتكفل بأمور عباده المفوضين إليه، الكافي لمن توكل عليه." },
+            { name: "الْقَوِيُّ", desc: "ذو القدرة التامة والسيطرة الكاملة التي لا يعجزها شيء." },
+            { name: "الْمَتِينُ", desc: "الشديد القوة الذي لا يلحقه تعب ولا يعتريه ضعف في أفعاله." },
+            { name: "الْوَلِيُّ", desc: "المحب والناصر والمساعد لعباده المؤمنين المتقين." },
+            { name: "الْحَمِيدُ", desc: "المستحق للحمد والثناء بأفعاله وصفاته الجميلة في كل وقت." },
+            { name: "الْمُحْصِي", desc: "الذي أحصى كل شيء بعلمه وعدّه عدداً فلا يفوته شيء." },
+            { name: "الْمُبْدِئُ", desc: "الذي بدأ خلق الكائنات من العدم على غير مثال سابق." },
+            { name: "الْمُعِيدُ", desc: "الذي يعيد الخلق بعد فنائهم إلى الحياة مرة أخرى للحساب." },
+            { name: "الْمُحْيِي", desc: "الذي يهب الحياة للأجساد الميتة ويبعث الروح في النفوس." },
+            { name: "الْمُمِيتُ", desc: "الذي يقدر الموت على الأحياء ويسلب منهم الحياة بحكمته." },
+            { name: "الْحَيُّ", desc: "المتصف بالحياة الأبدية المستمرة التي لا بداية لها ولا نهاية." },
+            { name: "الْقَيُّومُ", desc: "القائم بنفسه والمستغني عن خلقه، والمدبر لشؤون الكون كله." },
+            { name: "الْوَاجِدُ", desc: "الذي لا يعوزه شيء ولا يفوته مطلوب، الغني عن كل أحد." },
+            { name: "الْمَاجِدُ", desc: "ذو المجد الفائق والفضل العظيم والكرم الواسع والرفعة." },
+            { name: "الْوَاحِدُ", desc: "الذي لا شريك له في ذاته ولا في صفاته ولا في أفعاله." },
+            { name: "الأَحَدُ", desc: "المنفرد بالوحدانية المطلقة، الذي لم يلد ولم يولد." },
+            { name: "الصَّمَدُ", desc: "المقصود في الحوائج كلها، الذي تصمد وتلجأ إليه الخلائق." },
+            { name: "الْقَادِرُ", desc: "المتمكن من فعل ما يشاء بتقديره وقدرته المطلقة." },
+            { name: "الْمُقْتَدِرُ", desc: "ذو القدرة العظيمة التي لا يمتنع عليها شيء في الأرض ولا في السماء." },
+            { name: "الْمُقَدِّمُ", desc: "الذي يقدم الأشياء ويضعها في مراتبها بحسب حكمته وإرادته." },
+            { name: "الْمُقَسِّطُ", desc: "العادل في أحكامه، المنصف للمظلومين والآخذ بحقوقهم." },
+            { name: "الْجَامِعُ", desc: "الذي يجمع الخلائق ليوم القيامة، ويجمع شتات الأمور بحكمته." },
+            { name: "الْغَنِيُّ", desc: "المستغني عن كل ما سواه وكل الكائنات مفتقرة إليه." },
+            { name: "الْمُغْنِي", desc: "الذي يغني من يشاء من عباده بفضله وجوده ورزقه الواسع." },
+            { name: "الْمَانِعُ", desc: "الذي يمنع أسباب الهلاك والضرر عن عباده بحفظه ولطفه." },
+            { name: "الضَّارُّ", desc: "الذي يقدر الضر والابتلاء على من يشاء بحكمته البالغة." },
+            { name: "النَّافِعُ", desc: "الذي يقدر النفع والخير والشفاء لمن يشاء بفضله وجوده." },
+            { name: "النُّورُ", desc: "الهادي لقلوب المؤمنين، ومنور السماوات والأرض بنوره الباهر." },
+            { name: "الْهَادِي", desc: "المرشد والموفق لعباده المؤمنين إلى طريق الحق والرشاد." },
+            { name: "الْبَدِيعُ", desc: "الذي خلق الكون على غير مثال سابق بجمال وإبداع منقطع النظير." },
+            { name: "الْبَاقِي", desc: "المستمر الوجود بغير زوال ولا فناء، الدائم أبد الآبدين." },
+            { name: "الْوَارِثُ", desc: "الذي يبقى حياً بعد فناء الخلائق ويرجع إليه ملك الكون كله." },
+            { name: "الرَّشِيدُ", desc: "الذي يسوق الأمور إلى غاياتها بحكمة وتوفيق بغير إرشاد أحد." },
+            { name: "الصَّبُورُ", desc: "الذي لا يعاجل العصاة بالعقوبة بل يمهلهم صبراً ولطفاً وتكبيراً." }
+        ];
+
+        // Ruqyah Shariah Verses
+        const ruqyahList = [
+            { text: "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ * الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ * الرَّحْمَٰنِ الرَّحِيمِ * مَالِكِ يَوْمِ الدِّينِ * إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ * اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ * صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلَا الضَّالِّينَ", ref: "سورة الفاتحة (شافية كافية بإذن الله)" },
+            { text: "اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ", ref: "سورة البقرة - آية الكرسي (تحصين عظيم من الشياطين والشرور)" },
+            { text: "قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ * لَمْ يَلِدْ وَلَمْ يُولَدْ * وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ", ref: "سورة الإخلاص (تعدل ثلث القرآن الكريم)" },
+            { text: "قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ * مِنْ شَرِّ مَا خَلَقَ * وَمِنْ شَرِّ غَاسِقٍ إِذَا وَقَبَ * وَمِنْ شَرِّ النَّفَّاثَاتِ فِي الْعُقَدِ * وَمِنْ شَرِّ حَاسِدٍ إِذَا حَسَدَ", ref: "سورة الفلق (للحماية من الحسد والعين والأسحار)" },
+            { text: "قُلْ أَعُوذُ بِرَبِّ النَّاسِ * مَلِكِ النَّاسِ * إِلَٰهِ النَّاسِ * مِنْ شَرِّ الْوَسْوَاسِ الْخَنَّاسِ * الَّذِي يُوَسْوِسُ فِي صُدُورِ النَّاسِ * مِنَ الْجِنَّةِ وَالنَّاسِ", ref: "سورة الناس (للحماية من وساوس الإنس والجن)" }
+        ];
+
+        // Duas List
+        const localDuas = [
+            "رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ",
+            "اللَّهُمَّ إِنَّكَ عَفُوٌّ تُحِبُّ الْعَفْوَ فَاعْفُ عَنِّي",
+            "يَا حَيُّ يَا قَيُّومُ بِرَحْمَتِكَ أَسْتَغِيثُ أَصْلِحْ لِي شَأْنِي كُلَّهُ وَلَا تَكِلْنِي إِلَى نَفْسِي طَرْفَةَ عَيْنٍ",
+            "اللَّهُمَّ إِنِّي أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ",
+            "رَبِّ اشْرَحْ لِي صَدْرِي * وَيَسِّرْ لِي أَمْرِي * وَاحْلُلْ عُقْدَةً مِّن لِّسَانِي * يَفْقَهُوا قَوْلِي"
+        ];
+
+        // Hadiths List
         const localHadiths = [
             { text: "«إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى، فمن كانت هجرته إلى الله ورسوله، فهجرته إلى الله ورسوله...»", ref: "رواه البخاري ومسلم - عن عمر بن الخطاب" },
             { text: "«من سلك طريقًا يلتمس فيه علمًا، سهل الله له به طريقًا إلى الجنة»", ref: "رواه مسلم - عن أبي هريرة" },
             { text: "«لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه»", ref: "رواه البخاري ومسلم - عن أنس بن مالك" },
             { text: "«الكلمة الطيبة صدقة، وكل خطوة تمشيها إلى الصلاة صدقة»", ref: "رواه البخاري - عن أبي هريرة" },
-            { text: "«اتق الله حيثما كنت، وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن»", ref: "رواه الترمذي - عن معاذ بن جبل" }
+            { text: "«اتق الله حيثما كنت، وأتبع السيئة الحسنة تمحها، وخالق الناس بخلق حسن»", ref: "رواه الترمذي - عن معاذ بن جبل" },
+            { text: "«يسروا ولا تعسروا، وبشروا ولا تنفروا»", ref: "رواه البخاري - عن أنس بن مالك" },
+            { text: "«الدين النصيحة، قلنا: لمن؟ قال: لله ولكتابه ولرسوله ولأئمة المسلمين وعامتهم»", ref: "رواه مسلم - عن تميم الداري" },
+            { text: "«من كان يؤمن بالله واليوم الآخر فليقل خيرًا أو ليصمت»", ref: "رواه البخاري - عن أبي هريرة" },
+            { text: "«تبسمك في وجه أخيك لك صدقة»", ref: "رواه الترمذي - عن أبي ذر الغفاري" },
+            { text: "«المؤمن القوي خير وأحب إلى الله من المؤمن الضعيف، وفي كل خير»", ref: "رواه مسلم - عن أبي هريرة" }
         ];
 
         // Local Azkar Data
@@ -360,6 +627,16 @@
             ]
         };
 
+        let currentTafsirData = [];
+        let currentArabicData = [];
+        let isTafsirActive = false;
+        let lastHadithIndex = -1;
+        let lastDuaIndex = -1;
+        let dailyAyahAudio = null;
+        let dailyAyahAudioUrl = '';
+        let currentRuqyahIndex = 0;
+        let allRadiosList = [];
+
         // Initialize App
         window.addEventListener('DOMContentLoaded', () => {
             fetchHijriDate();
@@ -367,6 +644,10 @@
             fetchDailyAyah();
             fetchPrayerTimes();
             fetchRandomHadith();
+            fetchRandomDua();
+            loadNamesOfAllah();
+            loadRuqyah();
+            fetchRadios();
             switchAzkarTab('morning');
         });
 
@@ -380,7 +661,7 @@
                     document.getElementById('hijri-date').innerText = `${h.day} ${h.month.ar} ${h.year} هـ`;
                 }
             } catch (err) {
-                document.getElementById('hijri-date').innerText = "١٥ رمضان ١٤٤٥ هـ";
+                document.getElementById('hijri-date').innerText = "١٥ رمضان ١٤٤٧ هـ";
             }
         }
 
@@ -388,10 +669,10 @@
         async function fetchDailyAyah() {
             try {
                 const randomSurah = Math.floor(Math.random() * 114) + 1;
-                // Using requested API endpoint structure: https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@{apiVersion}/{endpoint}
                 const res = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quransimple/${randomSurah}.json`);
                 const data = await res.json();
-                if (data && data.chapter) {
+                
+                if (data && data.chapter && data.chapter.length > 0) {
                     const randomAyahIndex = Math.floor(Math.random() * data.chapter.length);
                     const ayah = data.chapter[randomAyahIndex];
                     document.getElementById('daily-ayah').innerText = `"${ayah.text}"`;
@@ -415,7 +696,23 @@
             });
         }
 
-        // Load Surah Text from Fawaz Ahmed API & Audio
+        // Filter Surahs via Search
+        function filterSurahs() {
+            const searchVal = document.getElementById('surah-search').value.trim();
+            const select = document.getElementById('surah-select');
+            select.innerHTML = '<option value="">اختر السورة...</option>';
+            
+            surahsList.forEach((name, index) => {
+                if (name.includes(searchVal) || (index + 1).toString().includes(searchVal)) {
+                    const option = document.createElement('option');
+                    option.value = index + 1;
+                    option.innerText = `${index + 1}. سورة ${name}`;
+                    select.appendChild(option);
+                }
+            });
+        }
+
+        // Load Surah Text, Tafsir & Audio Fixes (alquran.cloud & quranicaudio)
         async function loadSurah() {
             const surahNum = document.getElementById('surah-select').value;
             if (!surahNum) return;
@@ -423,53 +720,240 @@
             const reciter = document.getElementById('reciter-select').value;
             const versesDiv = document.getElementById('surah-verses');
             const bismillah = document.getElementById('bismillah');
+            const tafsirBtn = document.getElementById('toggle-tafsir-btn');
             
-            versesDiv.innerHTML = '<div class="text-center py-8"><i class="fa-solid fa-spinner animate-spin text-3xl text-gold-400"></i><p class="mt-2 text-sm text-gray-400">جاري تحميل السورة الكريمة...</p></div>';
+            versesDiv.innerHTML = `
+                <div class="text-center py-8">
+                    <i class="fa-solid fa-spinner animate-spin text-3xl text-gold-400"></i>
+                    <p class="mt-2 text-sm text-gray-400 font-cairo">جاري تحميل السورة الكريمة والتفسير الميسر...</p>
+                </div>
+            `;
+            tafsirBtn.classList.add('hidden');
+            isTafsirActive = false;
+            document.getElementById('tafsir-btn-text').innerText = "عرض التفسير الميسر";
 
             try {
-                // Fetch Surah Text using requested Fawaz Ahmed API
-                const resText = await fetch(`https://cdn.jsdelivr.net/gh/fawazahmed0/quran-api@1/editions/ara-quransimple/${surahNum}.json`);
+                // Fetch Arabic Text
+                const resText = await fetch(`https://api.alquran.cloud/v1/surah/${surahNum}`);
                 const dataText = await resText.json();
 
-                if (dataText && dataText.chapter) {
-                    // Handle Bismillah
+                // Fetch Tafsir (Jalalayn)
+                const resTafsir = await fetch(`https://api.alquran.cloud/v1/surah/${surahNum}/ar.jalalayn`);
+                const dataTafsir = await resTafsir.json();
+
+                if (dataText && dataText.data && dataTafsir && dataTafsir.data) {
+                    currentArabicData = dataText.data.ayahs;
+                    currentTafsirData = dataTafsir.data.ayahs;
+                    tafsirBtn.classList.remove('hidden');
+
                     if (surahNum != 1 && surahNum != 9) {
                         bismillah.classList.remove('hidden');
                     } else {
                         bismillah.classList.add('hidden');
                     }
 
-                    // Render Verses
-                    let versesHtml = "";
-                    dataText.chapter.forEach(ayah => {
-                        let text = ayah.text;
-                        if (surahNum != 1 && surahNum != 9 && ayah.verse === 1) {
-                            text = text.replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "").trim();
-                        }
-                        versesHtml += `${text} <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-gold-500/40 text-xs font-bold text-gold-400 mx-1.5 font-cairo bg-emerald-950/40">${ayah.verse}</span> `;
-                    });
-                    versesDiv.innerHTML = versesHtml;
+                    renderSurahContent();
 
                     // Load Reciter Audio
                     const audioPlayer = document.getElementById('quran-audio');
                     const audioContainer = document.getElementById('audio-container');
                     const playingTitle = document.getElementById('playing-surah-title');
 
-                    const reciterMap = {
-                        'afs': 'ar.alafasy',
-                        'basit': 'ar.abdulbasitmurattal',
-                        'minsh': 'ar.minshawi',
-                        'lhusr': 'ar.husary'
-                    };
-                    const selectedReciter = reciterMap[reciter] || 'ar.alafasy';
+                    const formattedSurahNum = String(surahNum).padStart(3, '0');
+                    
+                    if (reciter === 'minsh') {
+                        audioPlayer.src = `https://download.quranicaudio.com/quran/muhammad_siddeeq_al-minshawi/${formattedSurahNum}.mp3`;
+                    } else if (reciter === 'lhusr') {
+                        audioPlayer.src = `https://download.quranicaudio.com/quran/mahmood_khaleel_al-husaree/murattal/${formattedSurahNum}.mp3`;
+                    } else if (reciter === 'basit') {
+                        audioPlayer.src = `https://download.quranicaudio.com/quran/abdul_basit_samad/murattal/${formattedSurahNum}.mp3`;
+                    } else {
+                        audioPlayer.src = `https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/${surahNum}.mp3`;
+                    }
 
-                    audioPlayer.src = `https://cdn.islamic.network/quran/audio-surah/128/${selectedReciter}/${surahNum}.mp3`;
                     playingTitle.innerText = `سورة ${surahsList[surahNum - 1]}`;
                     audioContainer.classList.remove('hidden');
+                    audioPlayer.load();
+                } else {
+                    throw new Error("Invalid API Data");
                 }
             } catch (err) {
                 versesDiv.innerHTML = '<p class="text-red-400 text-center font-cairo">حدث خطأ أثناء تحميل السورة. يرجى التحقق من اتصال الإنترنت والمحاولة مجدداً.</p>';
             }
+        }
+
+        // Render Surah Content
+        function renderSurahContent() {
+            const versesDiv = document.getElementById('surah-verses');
+            const surahNum = document.getElementById('surah-select').value;
+            let html = "";
+
+            if (isTafsirActive) {
+                html = '<div class="space-y-6 text-right font-cairo text-lg sm:text-xl">';
+                currentArabicData.forEach((ayah, index) => {
+                    let text = ayah.text;
+                    if (surahNum != 1 && surahNum != 9 && ayah.numberInSurah === 1) {
+                        text = text.replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "").trim();
+                    }
+                    const tafsirText = currentTafsirData[index] ? currentTafsirData[index].text : '';
+                    html += `
+                        <div onclick="openVerseDetail(${index})" class="p-4 bg-emerald-900/20 border border-emerald-800/40 rounded-xl space-y-2 hover:border-gold-500/30 cursor-pointer transition-all">
+                            <p class="quran-text text-2xl sm:text-3xl text-gold-100">${text} <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-gold-500/40 text-xs font-bold text-gold-400 mx-1 bg-emerald-950/40">${ayah.numberInSurah}</span></p>
+                            <p class="text-gray-300 text-sm leading-relaxed border-t border-emerald-800/30 pt-2"><strong class="text-gold-400">التفسير:</strong> ${tafsirText}</p>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+            } else {
+                html = '<div class="quran-text text-2xl sm:text-3xl text-gray-100 leading-[2.4] text-justify font-medium animate-fade-in">';
+                currentArabicData.forEach((ayah, index) => {
+                    let text = ayah.text;
+                    if (surahNum != 1 && surahNum != 9 && ayah.numberInSurah === 1) {
+                        text = text.replace("بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ", "").trim();
+                    }
+                    html += `<span onclick="openVerseDetail(${index})" class="hover:text-gold-400 cursor-pointer transition-colors duration-150">${text} <span class="inline-flex items-center justify-center w-8 h-8 rounded-full border border-gold-500/40 text-xs font-bold text-gold-400 mx-1.5 font-cairo bg-emerald-950/40">${ayah.numberInSurah}</span></span> `;
+                });
+                html += '</div>';
+            }
+            versesDiv.innerHTML = html;
+        }
+
+        // Toggle Tafsir View
+        function toggleTafsirView() {
+            isTafsirActive = !isTafsirActive;
+            const btnText = document.getElementById('tafsir-btn-text');
+            btnText.innerText = isTafsirActive ? "عرض النص القرآني فقط" : "عرض التفسير الميسر";
+            renderSurahContent();
+        }
+
+        // Audio Speed Controller
+        function changeAudioSpeed() {
+            const audio = document.getElementById('quran-audio');
+            const speed = document.getElementById('audio-speed').value;
+            audio.playbackRate = parseFloat(speed);
+        }
+
+        // Open Verse Detail Modal
+        function openVerseDetail(index) {
+            const ayah = currentArabicData[index];
+            const tafsir = currentTafsirData[index] ? currentTafsirData[index].text : 'لا يتوفر تفسير حالياً.';
+            const surahName = surahsList[document.getElementById('surah-select').value - 1];
+
+            document.getElementById('modal-verse-title').innerText = `سورة ${surahName} - آية ${ayah.numberInSurah}`;
+            document.getElementById('modal-verse-arabic').innerText = ayah.text;
+            document.getElementById('modal-verse-tafsir').innerText = tafsir;
+
+            const copyBtn = document.getElementById('modal-copy-btn');
+            copyBtn.onclick = () => {
+                const textToCopy = `"${ayah.text}"\n[سورة ${surahName}: آية ${ayah.numberInSurah}]\n\nالتفسير الميسر:\n${tafsir}`;
+                navigator.clipboard.writeText(textToCopy).then(() => {
+                    alert("تم نسخ الآية وتفسيرها الميسر بنجاح!");
+                });
+            };
+
+            document.getElementById('verse-modal').classList.remove('hidden');
+        }
+
+        function closeVerseModal() {
+            document.getElementById('verse-modal').classList.add('hidden');
+        }
+
+        // Load 99 Names of Allah
+        function loadNamesOfAllah() {
+            const grid = document.getElementById('names-grid');
+            grid.innerHTML = "";
+            namesOfAllah.forEach((item) => {
+                const card = document.createElement('div');
+                card.className = "bg-emerald-950/50 border border-gold-500/10 rounded-xl p-3 text-center cursor-pointer hover:bg-emerald-900/40 hover:border-gold-500/40 transition-all duration-300 transform hover:-translate-y-1";
+                card.innerHTML = `
+                    <p class="quran-text text-xl sm:text-2xl font-bold text-gold-400">${item.name}</p>
+                `;
+                card.onclick = () => {
+                    alert(`${item.name}: ${item.desc}`);
+                };
+                grid.appendChild(card);
+            });
+        }
+
+        // Load Ruqyah Shariah
+        function loadRuqyah() {
+            const container = document.getElementById('ruqyah-content');
+            const current = ruqyahList[currentRuqyahIndex];
+            container.innerHTML = `
+                <div class="space-y-4 animate-fade-in text-right">
+                    <p class="quran-text text-xl sm:text-2xl text-gold-100 leading-relaxed">${current.text}</p>
+                    <p class="text-xs text-gold-400/80 italic font-semibold border-t border-emerald-800/40 pt-2"><i class="fa-solid fa-circle-info"></i> ${current.ref}</p>
+                </div>
+            `;
+            document.getElementById('ruqyah-progress').innerText = `الآية ${currentRuqyahIndex + 1} من ${ruqyahList.length}`;
+        }
+
+        function nextRuqyah() {
+            currentRuqyahIndex = (currentRuqyahIndex + 1) % ruqyahList.length;
+            loadRuqyah();
+        }
+
+        // Fetch Radios using official mp3quran API
+        async function fetchRadios() {
+            try {
+                const res = await fetch("https://mp3quran.net/api/v3/radios?language=ar");
+                const data = await res.json();
+                if (data && data.radios) {
+                    allRadiosList = data.radios;
+                    renderRadios(allRadiosList);
+                }
+            } catch (err) {
+                document.getElementById('radios-grid').innerHTML = '<p class="text-xs text-red-400 text-center col-span-full">فشل في جلب الإذاعات المباشرة. يرجى التحقق من الاتصال.</p>';
+            }
+        }
+
+        function renderRadios(list) {
+            const grid = document.getElementById('radios-grid');
+            grid.innerHTML = "";
+            if (list.length === 0) {
+                grid.innerHTML = '<p class="text-xs text-gray-400 text-center col-span-full">لا توجد نتائج مطابقة للبحث.</p>';
+                return;
+            }
+            list.forEach(radio => {
+                const card = document.createElement('div');
+                card.className = "bg-emerald-900/20 hover:bg-emerald-900/40 border border-emerald-800/40 hover:border-gold-500/30 rounded-xl p-3 flex justify-between items-center cursor-pointer transition-all";
+                card.innerHTML = `
+                    <p class="text-xs font-bold text-gray-100 truncate max-w-[200px]">${radio.name}</p>
+                    <span class="text-gold-400 text-xs flex items-center gap-1"><i class="fa-solid fa-play"></i> استمع</span>
+                `;
+                card.onclick = () => playRadio(radio.url, radio.name);
+                grid.appendChild(card);
+            });
+        }
+
+        function filterRadios() {
+            const val = document.getElementById('radio-search').value.toLowerCase().trim();
+            const filtered = allRadiosList.filter(r => r.name.toLowerCase().includes(val));
+            renderRadios(filtered);
+        }
+
+        function playRadio(url, name) {
+            const audio = document.getElementById('radio-audio');
+            audio.src = url;
+            audio.play();
+            document.getElementById('active-radio-name').innerText = name;
+        }
+
+        // Fetch Random Dua
+        function fetchRandomDua() {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * localDuas.length);
+            } while (randomIndex === lastDuaIndex && localDuas.length > 1);
+            lastDuaIndex = randomIndex;
+            document.getElementById('dua-text').innerText = `"${localDuas[randomIndex]}"`;
+        }
+
+        function copyDua() {
+            const text = document.getElementById('dua-text').innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert("تم نسخ الدعاء الشريف بنجاح!");
+            });
         }
 
         // Fetch Prayer Times
@@ -494,9 +978,14 @@
             }
         }
 
-        // Random Hadith
+        // Random Hadith without Repetition
         function fetchRandomHadith() {
-            const randomIndex = Math.floor(Math.random() * localHadiths.length);
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * localHadiths.length);
+            } while (randomIndex === lastHadithIndex && localHadiths.length > 1);
+            
+            lastHadithIndex = randomIndex;
             const selected = localHadiths[randomIndex];
             document.getElementById('hadith-text').innerText = selected.text;
             document.getElementById('hadith-ref').innerText = selected.ref;
@@ -555,7 +1044,7 @@
             list.forEach((zekr, index) => {
                 zekr.current = 0;
                 const card = document.createElement('div');
-                card.className = "bg-emerald-950/40 border border-emerald-800/60 rounded-xl p-5 flex flex-col justify-between space-y-4 hover:border-gold-500/40 transition-all duration-300";
+                card.className = "bg-emerald-950/40 border border-gold-500/10 rounded-xl p-5 flex flex-col justify-between space-y-4 hover:border-gold-500/40 transition-all duration-300 animate-fade-in";
                 card.innerHTML = `
                     <p class="text-gray-100 text-base leading-relaxed font-medium">${zekr.text}</p>
                     <div class="flex items-center justify-between pt-3 border-t border-emerald-800/40">
